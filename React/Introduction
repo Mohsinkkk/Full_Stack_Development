@@ -1,0 +1,198 @@
+React.js Complete Roadmap (Beginner to Advanced)
+1. Introduction to React.js
+What is React?
+React.js is a JavaScript library used for building fast and scalable user interfaces. It follows a component-based architecture and allows reusable UI components.
+
+Why Use React?
+✔️ Component-Based Architecture → UI is divided into reusable components.
+✔️ Virtual DOM → Fast rendering and better performance.
+✔️ One-Way Data Flow → Predictable state management.
+✔️ SEO-Friendly → Works well with server-side rendering.
+
+Hinglish Explanation
+React.js ek JavaScript library hai jo fast aur scalable UI banane ke liye use hoti hai.
+Ye ek component-based architecture follow karti hai jisme UI chhoti-chhoti reusable blocks me divided hoti hai.
+✅ Virtual DOM se fast rendering hoti hai.
+✅ One-way data flow hone se state management easy hota hai.
+
+2. Installing React.js
+How to Install React?
+Run the following command to create a new React project:
+
+npx create-react-app my-app
+cd my-app
+npm start
+This will start the project on http://localhost:3000.
+
+Hinglish Explanation
+Agar aapko React.js project start karna hai toh ye command run karo:
+
+npx create-react-app my-app
+cd my-app
+npm start
+Ye ek basic React app setup karega jo http://localhost:3000 pe chalega.
+
+3. JSX (JavaScript XML)
+JSX is a syntax extension that allows writing HTML inside JavaScript.
+
+Example: JSX Syntax
+
+const MyComponent = () => {
+    return <h1>Hello, React!</h1>;
+};
+✅ JSX allows mixing JavaScript and HTML.
+✅ You must use a single parent <div> or <> fragment.
+
+Hinglish Explanation
+JSX ek syntax extension hai jo JavaScript me HTML likhne ki facility deta hai.
+✅ JSX JavaScript aur HTML ko mix karne allow karta hai.
+✅ Sabhi JSX elements ko ek single parent <div> me wrap karna padta hai.
+
+4. Components in React
+React applications are built using components.
+
+Types of Components
+1️⃣ Functional Component (Recommended for modern React apps)
+
+const Greeting = () => {
+    return <h1>Hello, World!</h1>;
+};
+✔ Lightweight and easy to use.
+
+2️⃣ Class Component (Used in older versions)
+
+import React, { Component } from "react";
+class Greeting extends Component {
+    render() {
+        return <h1>Hello, Class Component!</h1>;
+    }
+}
+✔ Used before React Hooks were introduced.
+
+Hinglish Explanation
+React me components ka use UI ko divide karne aur reuse karne ke liye hota hai.
+🔹 Functional Components → Zyada modern aur simple hote hain.
+🔹 Class Components → Old React versions me zyada use hote the.
+
+5. Props in React (Passing Data)
+Props are used to pass data from one component to another.
+
+Example: Passing Props
+
+const User = (props) => {
+    return <h2>Hello, {props.name}!</h2>;
+};
+const App = () => {
+    return <User name="Mohsin" />;
+};
+✅ Props are read-only and cannot be modified.
+
+Hinglish Explanation
+Props ka use data pass karne ke liye hota hai ek component se dusre component me.
+✅ Props read-only hote hain, inhe change nahi kar sakte.
+
+6. State in React (useState Hook)
+State is used to store and manage dynamic data in React.
+
+Example: State in Functional Component
+
+import { useState } from "react";
+
+const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <h2>Count: {count}</h2>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+};
+export default Counter;
+✅ State updates cause re-rendering of the component.
+
+Hinglish Explanation
+State ka use dynamic data store karne ke liye hota hai jo change ho sakta hai.
+✅ Jab bhi state change hoti hai, component re-render hota hai.
+
+7. Handling Events in React
+React uses event handlers to handle user interactions.
+
+Example: Handling Click Event
+
+const ButtonClick = () => {
+    const handleClick = () => {
+        alert("Button Clicked!");
+    };
+    return <button onClick={handleClick}>Click Me</button>;
+};
+✅ React uses camelCase for event names (onClick, onChange).
+
+Hinglish Explanation
+React me event handling function ke through hoti hai.
+✅ React me onClick likhte hain, onclick nahi.
+
+8. Conditional Rendering in React
+We can render components based on conditions.
+
+Example: Show Login Status
+
+const UserStatus = ({ isLoggedIn }) => {
+    return <h2>{isLoggedIn ? "Welcome Back!" : "Please Log In"}</h2>;
+};
+✅ ? : (ternary operator) and && can be used for conditions.
+
+Hinglish Explanation
+Conditional rendering ka use UI ko condition ke basis pe change karne ke liye hota hai.
+✅ Agar isLoggedIn = true hai toh "Welcome Back!" dikhega.
+
+9. API Calls in React (useEffect)
+useEffect is used to fetch data from an API when a component loads.
+
+Example: Fetch Data from API
+
+import { useState, useEffect } from "react";
+
+const FetchData = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/posts")
+            .then((response) => response.json())
+            .then((json) => setData(json));
+    }, []);
+
+    return (
+        <ul>
+            {data.map((post) => (
+                <li key={post.id}>{post.title}</li>
+            ))}
+        </ul>
+    );
+};
+export default FetchData;
+✅ API calls should be placed inside useEffect().
+
+Hinglish Explanation
+Agar hume API se data fetch karna ho toh useEffect aur fetch() ka use karte hain.
+✅ useEffect me [] dependency pass karne se API call sirf ek baar chalegi.
+
+10. React Router (Navigation in React)
+React Router is used to navigate between different pages in a React application.
+
+Example: React Router Setup
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+
+const App = () => (
+    <Router>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+        </Routes>
+    </Router>
+);
+export default App;
+✅ React Router allows single-page applications (SPA) to have multiple views.
